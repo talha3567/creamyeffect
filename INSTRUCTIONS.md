@@ -9,7 +9,7 @@ Eğer `.exe` dosyasını oluşturmadıysanız, Python ile şu şekilde çalışt
 1.  **Python Yükleyin:** Bilgisayarınızda Python yüklü olmalıdır. [python.org](https://www.python.org/) adresinden indirebilirsiniz. (Yüklerken "Add Python to PATH" seçeneğini işaretlemeyi unutmayın!)
 2.  **Gerekli Kütüphaneleri Kurun:** CMD (Komut İstemi) açın ve şu komutu yazıp Enter'a basın:
     ```bash
-    pip install pynput pygame
+    pip install pynput pygame pystray Pillow
     ```
 3.  **Uygulamayı Çalıştırın:** `creamy_keys.py` dosyasına çift tıklayın veya CMD üzerinden şu komutla açın:
     ```bash
