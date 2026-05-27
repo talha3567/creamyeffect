@@ -2,11 +2,22 @@ import os
 import random
 import json
 import threading
-import tkinter as tk
-from tkinter import ttk
-import pygame.mixer
-from pynput import keyboard, mouse
 import sys
+import tkinter as tk
+from tkinter import ttk, messagebox
+
+# Try to import external dependencies
+try:
+    import pygame.mixer
+    from pynput import keyboard, mouse
+except ImportError as e:
+    root = tk.Tk()
+    root.withdraw()
+    messagebox.showerror("Hata / Error",
+        f"Gerekli kütüphaneler eksik!\nLütfen şu komutu çalıştırın:\n\n"
+        f"pip install pynput pygame\n\n"
+        f"Detay: {e}")
+    sys.exit(1)
 
 # Constants
 CONFIG_FILE = "config.json"
@@ -176,11 +187,17 @@ class CreamyKeysApp:
         self.root.mainloop()
 
 if __name__ == "__main__":
-    app = CreamyKeysApp()
-    if len(sys.argv) > 1 and sys.argv[1] == "--test":
-        print("Testing initialization...")
-        import time
-        time.sleep(1)
-        print("Test complete.")
-    else:
-        app.run()
+    try:
+        app = CreamyKeysApp()
+        if len(sys.argv) > 1 and sys.argv[1] == "--test":
+            print("Testing initialization...")
+            import time
+            time.sleep(1)
+            print("Test complete.")
+        else:
+            app.run()
+    except Exception as e:
+        root = tk.Tk()
+        root.withdraw()
+        messagebox.showerror("Hata / Error", f"Uygulama başlatılırken bir hata oluştu:\n\n{e}")
+        sys.exit(1)

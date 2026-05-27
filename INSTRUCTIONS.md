@@ -1,42 +1,38 @@
-# CreamyKeys Standalone
+# CreamyKeys Standalone (Bilgisayar Klavye Sesi)
 
-This is a standalone version of the Minecraft mod "CreamyKeys" that adds mechanical keyboard and mouse clicking sounds to your entire computer.
+Bu uygulama, Minecraft'taki "CreamyKeys" modunun tüm bilgisayarınızda çalışacak şekilde uyarlanmış halidir. Klavyede bir tuşa bastığınızda veya fareye tıkladığınızda mekanik klavye sesi çıkarır.
 
-## How to use
+## Nasıl Kullanılır? (How to Use)
 
-1.  **Install Python** (if you want to run from source).
-2.  **Install dependencies**:
+Eğer `.exe` dosyasını oluşturmadıysanız, Python ile şu şekilde çalıştırabilirsiniz:
+
+1.  **Python Yükleyin:** Bilgisayarınızda Python yüklü olmalıdır. [python.org](https://www.python.org/) adresinden indirebilirsiniz. (Yüklerken "Add Python to PATH" seçeneğini işaretlemeyi unutmayın!)
+2.  **Gerekli Kütüphaneleri Kurun:** CMD (Komut İstemi) açın ve şu komutu yazıp Enter'a basın:
     ```bash
     pip install pynput pygame
     ```
-3.  **Run the application**:
+3.  **Uygulamayı Çalıştırın:** `creamy_keys.py` dosyasına çift tıklayın veya CMD üzerinden şu komutla açın:
     ```bash
     python creamy_keys.py
     ```
 
-## How to create .exe (Windows)
+## .exe Dosyasına Çevirme (Windows)
 
-To convert this script into a standalone `.exe` file, follow these steps:
+Uygulamayı tek bir `.exe` dosyası haline getirip kütüphane kurmadan kullanmak isterseniz:
 
-1.  **Install PyInstaller**:
+1.  **PyInstaller Kurun:** CMD'ye şunu yazın:
     ```bash
     pip install pyinstaller
     ```
-2.  **Build the executable**:
-    Run the following command in the terminal:
+2.  **EXE Oluşturun:** Proje klasöründe CMD açın ve şu komutu yapıştırın:
     ```bash
     pyinstaller --noconsole --onefile --add-data "sounds;sounds" creamy_keys.py
     ```
-    - `--noconsole`: Prevents a terminal window from opening when you run the app.
-    - `--onefile`: Bundles everything into a single `.exe` file.
-    - `--add-data "sounds;sounds"`: Includes the sound assets in the executable.
+    - İşlem bittiğinde `dist` klasörünün içinde `creamy_keys.exe` dosyasını bulabilirsiniz.
 
-The final `.exe` will be located in the `dist/` folder.
+## Özellikler
 
-## Features
-
-- **Global Key Sounds**: Works in any application, not just Minecraft.
-- **Sound Selection**: Choose from various mechanical switch types (Cherry MX Black, Blue, Brown, Red).
-- **Volume Control**: Adjust the loudness of the clicks.
-- **Mouse Clicks**: Separate sound set for mouse buttons.
-- **Settings Persistence**: Saves your preferences in `config.json`.
+- **Tüm Bilgisayarda Çalışır:** Sadece Minecraft'ta değil, yazı yazdığınız her yerde ses çıkarır.
+- **Ses Ayarı:** Uygulama içindeki kaydırıcı (slider) ile ses seviyesini ayarlayabilirsiniz.
+- **Farklı Switchler:** Cherry MX Black, Blue, Brown ve Red gibi farklı klavye seslerini seçebilirsiniz.
+- **Ayarlar Kaydedilir:** Yaptığınız ses ve paket seçimleri `config.json` dosyasına kaydedilir ve uygulama açıldığında otomatik yüklenir.

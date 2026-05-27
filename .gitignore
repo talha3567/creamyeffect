@@ -1,4 +1,13 @@
-sounds/
-CreamyKeys.jar
-CreamyKeys-1.21.X-decompiled/
-*.json
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# PyInstaller build artifacts
+build/
+dist/
+*.spec
+
+# User config
+config.json
